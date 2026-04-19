@@ -39,3 +39,23 @@
 // app.listen(3000, () => {
 //     console.log("Server is running on port 3000")
 // })
+
+//middleware
+
+const express = require('express');
+const app = express();
+
+app.use((req, res, next) => {
+    console.log("Request URL:", req.url);
+    console.log("Middleware hai ye")
+    next();
+})
+
+app.get('/', (req, res) => {
+    res.send("Welcome to Express JS!")
+    console.log("Route handler hai ye")
+})
+
+app.listen(3000, () => {
+    console.log("Server is running on port 3000")
+})
