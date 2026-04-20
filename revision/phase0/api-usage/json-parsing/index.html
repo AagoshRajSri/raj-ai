@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Parsing Demo | Om AI</title>
+</head>
+
+<body>
+    <h1>JSON Parsing Demo</h1>
+    <button id="fetchBtn">Fetch API Data</button>
+    <div id="output2">The name is: </div>
+    <div id="output">The mail is: </div>
+
+    <script type="module">
+        import { getAPI } from './api.js';
+
+        const btn = document.getElementById("fetchBtn");
+        const output = document.getElementById("output");
+        const output2 = document.getElementById("output2");
+
+        btn.addEventListener('click', async () => {
+            btn.textContent = 'Fetching...';
+            btn.disabled = true;
+            try {
+                const data = await getAPI();
+                output.style.display = 'block';
+                output.textContent = "The mail is: " + data[Math.floor(Math.random() * data.length)].email;
+                output2.style.display = 'block';
+                output2.textContent = "The name is: " + data[Math.floor(Math.random() * data.length)].name;
+            } catch (err) {
+                output.textContent = 'Error fetching data';
+            } finally {
+                btn.textContent = 'Fetch API Data';
+                btn.disabled = false;
+            }
+        });
+    </script>
+
+</html>
