@@ -3,6 +3,7 @@ import readline from "readline"
 import { initMemory } from "./src/core/memory.js"
 import { systemPrompt } from "./src/core/systemPrompt.js"
 import { chat } from "./src/core/chat.js"
+import { speak, play } from "./src/core/tts.js"
 
 initMemory(systemPrompt) // stars convo with personality
 
@@ -15,9 +16,10 @@ const rl = readline.createInterface({
 function ask() {
     rl.question("You: ", async (input) => {
         const reply = await chat(input);
-        console.log('AI: ', reply);
+        console.log("AI: ", reply)
+        await speak(reply)
+        play()
         ask();
     })
 }
-
 ask();

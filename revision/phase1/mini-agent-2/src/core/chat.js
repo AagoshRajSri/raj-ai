@@ -5,25 +5,33 @@ import model from "../config/gemini.js"
 export async function chat(userInput) {
     addMessage("user", userInput) //gets message from the user
 
-    const messages = getMessages();
-    
-    // Transform history for Gemini (excluding system prompt and current message)
-    const history = messages
-        .filter(msg => msg.role !== "system")
-        .map(msg => ({
-            role: msg.role === "assistant" ? "model" : "user",
-            parts: [{ text: msg.content }]
-        }));
+    try {
+        const messages = getMessages();
+        
+        // Transform history for Gemini (excluding system prompt and current message)
+        const history = messages
+            .filter(msg => msg.role !== "system")
+            .map(msg => ({
+                role: msg.role === "assistant" ? "model" : "user",
+                parts: [{ text: msg.content }]
+            }));
 
-    // The last message in history is the one we just added
-    const currentMessage = history.pop().parts[0].text;
-    
-    const chatSession = model.startChat({ history });
-    const result = await chatSession.sendMessage(currentMessage);
-    const reply = result.response.text();
+        // The last message in history is the one we just added
+        const currentMessage = history.pop().parts[0].text;
+        
+        const chatSession = model.startChat({ history });
+        const result = await chatSession.sendMessage(currentMessage);
+        const reply = result.response.text();
 
-    addMessage("assistant", reply) // adds response to memory
+        addMessage("assistant", reply) // adds response to memory
+        return reply;
 
-    return reply;
+    } catch (error) {
+        console.error("Gemini API Error:", error.message);
+        const errorMessage = "Sorry, I'm feeling a bit overloaded right now. Can we try again in a second?";
+        addMessage("assistant", errorMessage);
+        return errorMessage;
+    }
 }
+
 
