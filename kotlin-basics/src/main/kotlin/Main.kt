@@ -1,6 +1,6 @@
 #!/usr/bin/env kotlin
 
-import com.sun.jdi.IntegerType
+// import com.sun.jdi.IntegerType
 
 //fun main(){
 //    // data types
@@ -105,15 +105,60 @@ import com.sun.jdi.IntegerType
 //}
 
 // shorter version
-fun main(){
-    println("Enter ur number: ")
-    val input = readln().toIntOrNull()
+//fun main(){
+//    println("Enter ur number: ")
+//    val input = readln().toIntOrNull()
+//
+//    val output = when (input) {
+//        null -> "enter a valid integer"
+//        2 -> "thats an even number"
+//        3 -> "thats an odd number"
+//        else -> "i have no idea what to print"
+//    }
+//    println(output)
+//}
+//
+//fun main() {
+//    // exception
+//    println("Enter a number: ")
+//    val input = readln()
+//
+//    val inputAsInteger = try {
+//        val num = input.toInt()
+//        println("This is a correct format")
+//        num
+//    } catch (e: NumberFormatException) {
+//        println("Invalid format")
+//        null
+//    }
+//
+//    val output = when(inputAsInteger){
+//        3 -> "its 3"
+//        4 -> "its 4"
+//        5 -> "its 5"
+//        null -> "This is an incorrect format, check again!"
+//        else -> "Some other number"
+//    }
+//
+//    println(output)
+//}
 
-    val output = when (input) {
-        null -> "enter a valid integer"
-        2 -> "thats an even number"
-        3 -> "thats an odd number"
-        else -> "i have no idea what to print"
+fun main() {
+    // arrays
+    println("Enter a number")
+    val input = readln().toIntOrNull()
+    val favoriteNumbers = intArrayOf(1, 2, 3, 4, 5)
+
+    if (input != null) {
+        if (input in favoriteNumbers.indices) {
+            println("Your number is ${favoriteNumbers[input]}")
+        } else {
+            println("Index out of range!")
+        }
+    } else {
+        println("Invalid input")
     }
-    println(output)
 }
+//    println(favoriteNumbers[0])
+//    println(favoriteNumbers[1])
+//    println(favoriteNumbers[3])
