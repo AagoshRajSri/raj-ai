@@ -237,16 +237,51 @@
 //        println(c)
 //    }
 //}
+//
+//fun main(){
+//    // reversing a string
+//    println("enter a text")
+//    val input = readln()
+//
+//    val finalString = buildString {
+//        for (i in input.lastIndex downTo 0) {
+//            append(input[i])
+//        }
+//    }
+//        println(finalString)
+//}
 
+// normal function
+//fun main(){
+//    println("enter a string: ")
+//    val input = readln()
+//
+//    val finalString = buildString {
+//        for(i in input.lastIndex downTo 0){
+//            append(input[i])
+//        }
+//    }
+//    println(finalString)
+//}
+
+// how we can make re-usable functions
 fun main(){
-    // reversing a string
-    println("enter a text")
+    println("Enter a text")
     val input = readln()
+    val reversed = reversed(input)
+    println(reversed)
+    if(input == reversed(input)){
+        println("that is a palindrome!")
+    }else {
+        println("that is not a palindrome!")
+    }
+}
 
-    val finalString = buildString {
-        for (i in input.lastIndex downTo 0) {
-            append(input[i])
+fun reversed(stringToReverse: String): String{
+    val finalString = buildString{
+        for(i in stringToReverse.lastIndex downTo 0){
+            append(stringToReverse[i])
         }
     }
-        println(finalString)
+    return finalString
 }
