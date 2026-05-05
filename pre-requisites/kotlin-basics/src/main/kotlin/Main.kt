@@ -143,22 +143,110 @@
 //    println(output)
 //}
 
-fun main() {
-    // arrays
-    println("Enter a number")
-    val input = readln().toIntOrNull()
-    val favoriteNumbers = intArrayOf(1, 2, 3, 4, 5)
-
-    if (input != null) {
-        if (input in favoriteNumbers.indices) {
-            println("Your number is ${favoriteNumbers[input]}")
-        } else {
-            println("Index out of range!")
-        }
-    } else {
-        println("Invalid input")
-    }
-}
+//fun main() {
+//    // arrays
+//    println("Enter a number")
+//    val input = readln().toIntOrNull()
+//    val favoriteNumbers = intArrayOf(1, 2, 3, 4, 5)
+//
+//    if (input != null) {
+//        if (input in favoriteNumbers.indices) {
+//            println("Your number is ${favoriteNumbers[input]}")
+//        } else {
+//            println("Index out of range!")
+//        }
+//    } else {
+//        println("Invalid input")
+//    }
+//}
 //    println(favoriteNumbers[0])
 //    println(favoriteNumbers[1])
 //    println(favoriteNumbers[3])
+
+//fun main(){
+    // loops
+//    println("Enter a number of your wish: ")
+//    val amountOfNumbers = readln().toIntOrNull() ?: 0
+//    var sum = 0
+//    var i = 0
+//    while (i < amountOfNumbers){
+//        println("Please enter your number #${i + 1}")
+//        val number = readln().toIntOrNull() ?: continue // (it will directly jump to the loop again wo incrementing
+//        sum += number
+//        i ++
+//    }
+//    println("the total sum is $sum")
+// }
+
+//fun main(){
+//    println("How many numbers will you enter? ")
+//    val amountOfNumbers = readln().toIntOrNull() ?: 0
+//
+//    var numbers = intArrayOf()
+//    var i = 0
+//    while (i < amountOfNumbers){
+//        println("Please enter number #${i + 1}")
+//        val number = readln().toIntOrNull() ?: continue
+//        numbers += number
+//        i++
+//    }
+//    println("Numbers: ${numbers.contentToString()}")
+//}
+
+// a better approach ->
+//fun main(){
+//    println("How mmany numbers will u enter?")
+//    val amountOfNumbers = readln().toIntOrNull() ?: 0
+//
+//    val numbers = mutableListOf<Int>()
+//    var i = 0
+//    while ( i < amountOfNumbers ){
+//        println("Please enter number #${i + 1}")
+//        val number = readln().toIntOrNull() ?: continue
+//        numbers.add(number)
+//        i++
+//    }
+//    println("Numbers: $numbers")
+//}
+
+
+// an even better approach
+//fun main(){
+//    println("how many numbers?")
+//    val amountOfNumbers = readln().toIntOrNull() ?: 0
+//
+//    val numbers = mutableListOf<Int>()
+//
+//    for (i in 0 until  amountOfNumbers){
+//        println("Please enter number #${i + 1}")
+//        val number = readln().toIntOrNull() ?: continue
+//        numbers.add(number)
+//    }
+////    println("Numbers: $numbers")
+//    for ((index, number) in numbers.withIndex()) {
+//        println("Number #${index + 1} $number")
+//    }
+//}
+
+
+//fun main(){
+//    println("enter a text")
+//    val input = readln()
+//
+//    for(c in input){
+//        println(c)
+//    }
+//}
+
+fun main(){
+    // reversing a string
+    println("enter a text")
+    val input = readln()
+
+    val finalString = buildString {
+        for (i in input.lastIndex downTo 0) {
+            append(input[i])
+        }
+    }
+        println(finalString)
+}
