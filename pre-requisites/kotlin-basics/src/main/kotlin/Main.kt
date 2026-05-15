@@ -265,23 +265,81 @@
 //}
 
 // how we can make re-usable functions
-fun main(){
-    println("Enter a text")
-    val input = readln()
-    val reversed = reversed(input)
-    println(reversed)
-    if(input == reversed(input)){
-        println("that is a palindrome!")
-    }else {
-        println("that is not a palindrome!")
-    }
-}
+//fun main(){
+//    println("Enter a text")
+//    val input = readln()
+//    val reversed = reversed(input)
+//    println(reversed)
+//    if(input == reversed(input)){
+//        println("that is a palindrome!")
+//    }else {
+//        println("that is not a palindrome!")
+//    }
+//}
+//
+//fun reversed(stringToReverse: String): String{
+//    val finalString = buildString{
+//        for(i in stringToReverse.lastIndex downTo 0){
+//            append(stringToReverse[i])
+//        }
+//    }
+//    return finalString
+//}
 
-fun reversed(stringToReverse: String): String{
-    val finalString = buildString{
-        for(i in stringToReverse.lastIndex downTo 0){
-            append(stringToReverse[i])
-        }
-    }
-    return finalString
-}
+//fun main(){
+//    // extension function
+//    val text = "Oggy"
+//    println(text.addStars())
+//}
+//fun String.addStars() : String {
+//    return buildString {
+//        append("*** ")
+//        append(this@addStars)
+//        append(" ***")
+//    }
+//}
+
+//fun main() {
+//    // extension fn
+//    println("Enter a String")
+//    val input = readln()
+//
+//    println(input.reversedCustom())
+//}
+//
+//fun String.reversedCustom(): String {
+//    return buildString {
+//        for (i in this@reversedCustom.lastIndex downTo 0) {
+//            append(this@reversedCustom[i])
+//        }
+//    }
+//}
+
+//fun main() {
+// FUNCTION OVERLOADING
+//    println(add(2, 3))         // Int version
+//
+//    println(add(2.5, 3.5))     // Double version
+//}
+//
+//fun add(a: Int, b: Int): Int {
+//    return a + b
+//}
+//
+//fun add(a: Double, b: Double): Double {
+//    return a + b
+//}
+
+//fun main(){
+//    println(call("mom"))
+//    println(call("dad", 5))
+//}
+//
+//fun call(str : String) :String{
+//    return "calling $str"
+//}
+//
+//fun call(str : String, int : Int) : String{
+//    return "called $str, $int times"
+//}
+
